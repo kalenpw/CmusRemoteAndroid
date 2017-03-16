@@ -10,32 +10,109 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.kalenpw.cmusremote.MainActivity">
 
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true" />
+
     <Button
-        android:text="Pause"
+        android:text="C-5%"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
-        android:id="@+id/btnPause"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClick (MainActivity)" />
+        android:id="@+id/btnCmusVolMinusFive" />
+
+    <Button
+        android:text="C-1%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_toEndOf="@+id/btnCmusVolMinusFive"
+        android:id="@+id/btnCmusVolMinusOne" />
+
+    <Button
+        android:text="C+1%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_toEndOf="@+id/btnCmusVolMinusOne"
+        android:id="@+id/btnCmusVolPlusOne" />
+
+    <Button
+        android:text="C+5%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_toEndOf="@+id/btnCmusVolPlusOne"
+        android:id="@+id/btnCmusVolPlusFive" />
+
+    <Button
+        android:text="Play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCmusVolMinusFive"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btnPlayPause" />
+
+    <Button
+        android:text="Previous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPlayPause"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btnPrev"
+        android:layout_toStartOf="@+id/btnCmusVolPlusOne" />
 
     <Button
         android:text="Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext"
-        android:layout_below="@+id/btnPause"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClick (MainActivity)" />
+        android:layout_alignBaseline="@+id/btnPrev"
+        android:layout_alignBottom="@+id/btnPrev"
+        android:layout_alignEnd="@+id/btnCmusVolPlusFive"
+        android:layout_toEndOf="@+id/btnPrev" />
 
-    <Button
-        android:text="Previous"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnNext"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btnPrev"
-        android:layout_alignParentEnd="true" />
 </RelativeLayout>
