@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="pref_user_info_settings"
+        android:title="@string/pref_user_info_title">
+
+        <EditTextPreference
+            android:defaultValue="USER"
+            android:key="pref_username"
+            android:title="@string/pref_username" />
+        <EditTextPreference
+            android:defaultValue="0.0.0.0"
+            android:key="pref_host"
+            android:title="@string/pref_host" />
+        <EditTextPreference
+            android:defaultValue="22"
+            android:key="pref_port"
+            android:title="@string/pref_port" />
+        <EditTextPreference
+            android:defaultValue="hunter2"
+            android:key="pref_password"
+            android:inputType="textPassword"
+            android:title="@string/pref_password"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

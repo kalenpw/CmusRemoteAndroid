@@ -35,32 +35,32 @@
     </TableLayout>
 
     <TextView
-        android:text="TextView"
+        android:text="Track-Not Implemented"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/txtTrack" />
 
     <TextView
-        android:text="TextView"
+        android:text="Artist-Not Implemented"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
+        android:id="@+id/txtArtist"
+        android:layout_below="@+id/txtAlbum"
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="TextView"
+        android:text="Album-Not Implemented"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
+        android:id="@+id/txtAlbum"
+        android:layout_below="@+id/txtTrack"
         android:layout_alignParentStart="true" />
 
     <Button
         android:text="C-5%"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/txtArtist"
         android:layout_alignParentStart="true"
         android:id="@+id/btnCmusVolMinusFive" />
 
@@ -68,7 +68,7 @@
         android:text="C-1%"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/txtArtist"
         android:layout_toEndOf="@+id/btnCmusVolMinusFive"
         android:id="@+id/btnCmusVolMinusOne" />
 
@@ -76,7 +76,7 @@
         android:text="C+1%"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/txtArtist"
         android:layout_toEndOf="@+id/btnCmusVolMinusOne"
         android:id="@+id/btnCmusVolPlusOne" />
 
@@ -84,7 +84,7 @@
         android:text="C+5%"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/txtArtist"
         android:layout_toEndOf="@+id/btnCmusVolPlusOne"
         android:id="@+id/btnCmusVolPlusFive" />
 
@@ -103,7 +103,8 @@
         android:layout_below="@+id/btnPlayPause"
         android:layout_alignParentStart="true"
         android:id="@+id/btnPrev"
-        android:layout_toStartOf="@+id/btnCmusVolPlusOne" />
+        android:layout_toStartOf="@+id/btnCmusVolPlusOne"
+        android:layout_alignEnd="@+id/btnSysVolMinusOne" />
 
     <Button
         android:text="Next"
@@ -114,5 +115,46 @@
         android:layout_alignBottom="@+id/btnPrev"
         android:layout_alignEnd="@+id/btnCmusVolPlusFive"
         android:layout_toEndOf="@+id/btnPrev" />
+
+    <Button
+        android:text="S-5%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPrev"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btnSysVolMinusFive" />
+
+    <Button
+        android:text="S-1%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPrev"
+        android:layout_toEndOf="@+id/btnSysVolMinusFive"
+        android:id="@+id/btnSysVolMinusOne" />
+
+    <Button
+        android:text="S+1%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnNext"
+        android:layout_toEndOf="@+id/btnPrev"
+        android:id="@+id/btnSysVolPlusOne" />
+
+    <Button
+        android:text="S+5%"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnNext"
+        android:layout_toEndOf="@+id/btnSysVolPlusOne"
+        android:id="@+id/btnSysVolPlusFive" />
+
+    <Button
+        android:text="Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSettings"
+        android:layout_below="@+id/btnSysVolMinusFive"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

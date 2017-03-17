@@ -20,17 +20,35 @@ public class Commands {
         String command = "cmus-remote -v";
         String commandSuffix = "";
         if(volAmount < 0){
-            commandSuffix = "-" + volAmount + "%";
+            commandSuffix = " " + volAmount + "%";
         }
         else{
-            commandSuffix = "+" + volAmount + "%";
+            commandSuffix = " +" + volAmount + "%";
         }
         command += commandSuffix;
         return command;
     }
 
+    /**
+     * Changes the System volume by given amount
+     * Note: horrible naming convention is so you can think of this  method as a string that
+     * takes a parameter so it matches format of other commands
+     * Note: as of now user must be using pulse audio for this work. Will at some point make it
+     * more portable but that is not high priority
+     * @param int volAmount - % amount to change volume by. Pass in negative value to decreases volume
+     * @return String command - command which will be executed to adjust volume
+     */
     public static String CHANGE_SYSTEM_VOLUME_BY(int volAmount){
+        String command = "amixer -D pulse sset Master";
+        String commandSuffix = "";
+        if(volAmount < 0){
+            commandSuffix = " " + Math.abs(volAmount) + "%-";
+        }
+        else{
+            commandSuffix = " " + volAmount + "%+";
+        }
+        command += commandSuffix;
 
-        return "";
+        return command;
     }
 }

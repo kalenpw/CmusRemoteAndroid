@@ -1,15 +1,29 @@
+/*
+    kalenpw
+    kalenpwilliams@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    For a copy of the GNU General Public License see
+    http://www.gnu.org/licenses/
+ */
+
 package com.kalenpw.cmusremote;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelExec;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.Session;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -21,31 +35,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button _BtnCmusVolPlusOne;
     Button _BtnCmusVolMinusFive;
     Button _BtnCmusVolMinusOne;
-
+    Button _BtnSysVolMinusFive;
+    Button _BtnSysVolMinusOne;
+    Button _BtnSysVolPlusOne;
+    Button _BtnSysVolPlusFive;
+    Button _BtnSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        //Makes internet work
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        HostInfo.updateUserInfo(this);
         setupButtons();
-        SshManager sshManager = new SshManager();
-        System.out.println("*********************************************");
-        System.out.println(sshManager.getTrackInformation());
-
     }
 
-    private void updateTrackInfo(){
-
-    }
-
+    /**
+     * Method called on button clicks
+     * @param View view - current view
+     */
     @Override
     public void onClick(View view){
+        HostInfo.updateUserInfo(this);
         SshManager sshManager = new SshManager();
+        //sshManager.getTrackInformation();
 
         switch(view.getId()){
             case R.id.btnPlayPause:
@@ -70,20 +87,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnCmusVolPlusOne:
                 sshManager.executeCommand(Commands.CHANGE_CMUS_VOLUME_BY(1));
                 break;
+            //Sys volume
+            case R.id.btnSysVolMinusFive:
+                sshManager.executeCommand(Commands.CHANGE_SYSTEM_VOLUME_BY(-5));
+                break;
+            case R.id.btnSysVolMinusOne:
+                sshManager.executeCommand(Commands.CHANGE_SYSTEM_VOLUME_BY(-1));
+                break;
+            case R.id.btnSysVolPlusFive:
+                sshManager.executeCommand(Commands.CHANGE_SYSTEM_VOLUME_BY(5));
+                break;
+            case R.id.btnSysVolPlusOne:
+                sshManager.executeCommand(Commands.CHANGE_SYSTEM_VOLUME_BY(1));
+                break;
+            case R.id.btnSettings:
+                launchSettings();
+                break;
         }
+    }
 
+    /**
+     * Launches the preferences fragment
+     */
+    private void launchSettings(){
+        Intent intent = new Intent(this, PrefFragment.class);
+        startActivity(intent);
     }
 
     /**
      * Assigns buttons to class level variables and sets up onclick listeners
      */
     private void setupButtons(){
+        //Audio controls
         _BtnPlayPause = (Button) findViewById(R.id.btnPlayPause);
         _BtnPlayPause.setOnClickListener(this);
         _BtnNext = (Button) findViewById(R.id.btnNext);
         _BtnNext.setOnClickListener(this);
         _BtnPrev = (Button) findViewById(R.id.btnPrev);
         _BtnPrev.setOnClickListener(this);
+        //Cmus volume
         _BtnCmusVolMinusFive = (Button) findViewById(R.id.btnCmusVolMinusFive);
         _BtnCmusVolMinusFive.setOnClickListener(this);
         _BtnCmusVolMinusOne = (Button) findViewById(R.id.btnCmusVolMinusOne);
@@ -92,5 +134,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _BtnCmusVolPlusFive.setOnClickListener(this);
         _BtnCmusVolPlusOne = (Button) findViewById(R.id.btnCmusVolPlusOne);
         _BtnCmusVolPlusOne.setOnClickListener(this);
+        //System volume
+        _BtnSysVolMinusFive = (Button) findViewById(R.id.btnSysVolMinusFive);
+        _BtnSysVolMinusFive.setOnClickListener(this);
+        _BtnSysVolMinusOne = (Button) findViewById(R.id.btnSysVolMinusOne);
+        _BtnSysVolMinusOne.setOnClickListener(this);
+        _BtnSysVolPlusFive = (Button) findViewById(R.id.btnSysVolPlusFive);
+        _BtnSysVolPlusFive.setOnClickListener(this);
+        _BtnSysVolPlusOne = (Button) findViewById(R.id.btnSysVolPlusOne);
+        _BtnSysVolPlusOne.setOnClickListener(this);
+        //Settings
+        _BtnSettings = (Button) findViewById(R.id.btnSettings);
+        _BtnSettings.setOnClickListener(this);
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CmusRemote</string>
+    <string name="pref_username">User name</string>
+    <string name="pref_host">Host Name/IP</string>
+    <string name="pref_port">Port</string>
+    <string name="pref_user_info_title">User information</string>
+    <string name="pref_password">Password</string>
+
 </resources>
