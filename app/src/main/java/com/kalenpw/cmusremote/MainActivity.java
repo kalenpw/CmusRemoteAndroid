@@ -43,7 +43,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Makes internet work
+        //Give utility classes context
+        NotificationUtils.setContext(this);
+        AppSettings.setContext(this);
+        AppSettings.updateAppSettings();
+        HostInfo.setContext(this);
+        HostInfo.updateUserInfo();
+
+        //Display notification if need
+        NotificationUtils.handleDisplayNotifications();
+
+        //required for SSH to work/Possibly because using debug mode?
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -60,9 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View view){
-        HostInfo.updateUserInfo(this);
         SshManager sshManager = new SshManager();
-        //sshManager.getTrackInformation();
 
         switch(view.getId()){
             case R.id.btnPlayPause:

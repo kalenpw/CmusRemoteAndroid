@@ -24,4 +24,15 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="pref_app_settings"
+        android:title="App Settings">
+
+        <CheckBoxPreference
+            android:key="pref_notification"
+            android:title="@string/pref_notification"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
