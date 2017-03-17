@@ -40,7 +40,7 @@ public class NotificationUtils {
         NotificationCompat.Builder notificationBuilder = (android.support.v7.app.NotificationCompat.Builder)
                 new NotificationCompat.Builder(context)
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                        .setSmallIcon(R.drawable.play50)
+                        .setSmallIcon(R.drawable.ic_library_music_black_24dp)
                         .setContentTitle("Cmus Remote")
                         .setContentText("")
                         .setStyle(new NotificationCompat.MediaStyle()
